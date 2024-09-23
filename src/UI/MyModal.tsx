@@ -25,7 +25,7 @@ const modal=()=>{
       )
 }
 const togleModal=()=>{
-    setShowModal(!showModal)
+    setShowModal(()=>!showModal)
 }
 return {modal, togleModal, showModal}
 }

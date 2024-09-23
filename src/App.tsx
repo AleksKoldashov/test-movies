@@ -23,6 +23,7 @@ function handelClick(){
   setInput('')
 }
 
+
 useEffect(()=>{
   nav('/home')
 },[nav])
@@ -41,7 +42,7 @@ useEffect(()=>{
         <nav>
               <button
               onClick={()=>{modal.togleModal()}}
-              >Auth</button>
+              >{!!state.auth ? 'Auth' : 'No Auth'}</button>
               <NavLink to={`/favorites`}>Favorites</NavLink>
               <NavLink to={`/home`}>Home</NavLink> 
         </nav>
