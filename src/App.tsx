@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import logo from './img/logoMovie.png'
 import { NavLink, Outlet, useNavigate } from 'react-router-dom';
@@ -23,9 +23,9 @@ function handelClick(){
   setInput('')
 }
 
-useEffect(()=>{
-  nav('/home')
-},[nav])
+// useEffect(()=>{
+//   nav('/home')
+// },[nav])
 
   return (
     <MyReduserContext.Provider  value={{dispatch, state}}>
