@@ -17,14 +17,14 @@ const handelValue:React.ChangeEventHandler<HTMLInputElement> =(e)=>{
     setInput(e.target.value)
 }
 function handelClick(){
-  nav('/test-movies/home')
+  nav('/home')
   dispatch({type:'pagination', payload: 1})
   dispatch({type:'updateStr', payload: input})
   setInput('')
 }
 
 useEffect(()=>{
-  nav('/test-movies/home')
+  nav('/home')
 },[])
 
   return (
@@ -42,8 +42,8 @@ useEffect(()=>{
               <button
               onClick={()=>{modal.togleModal()}}
               >Auth</button>
-              <NavLink to={`/test-movies/favorites`}>Favorites</NavLink>
-              <NavLink to={`/test-movies/home`}>Home</NavLink> 
+              <NavLink to={`/favorites`}>Favorites</NavLink>
+              <NavLink to={`/home`}>Home</NavLink> 
         </nav>
         <div className="search">
               <input type="text" placeholder='enter movie title....' className='my-input' onChange={handelValue} value={input}/>
