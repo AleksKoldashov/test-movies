@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { useGetMoviesQuery } from '../service/movies';
-import Loading from '../UI/Loading';
-import Card from '../components/Card';
+import React, { useEffect, useState } from 'react';
+// import { useGetMoviesQuery } from '../service/movies';
+// import Loading from '../UI/Loading';
+// import Card from '../components/Card';
 import { MyReduserContext } from '../redux/reducer';
 import Pagination from '../components/Pagination';
 
@@ -11,8 +11,8 @@ export default function ContentPage() {
     const str = state.valueSearch;
     const pagin = state.pagination;
     const [movType, setMovType]=useState('movie');
-
-    const {data, error, isLoading}=useGetMoviesQuery({str,pagin, movType});
+    const [data, setData]=useState<any>()
+    // const {data, error, isLoading}=useGetMoviesQuery({str,pagin, movType});
 
     const arrGenres=['movie', 'series','episode']
 
@@ -21,6 +21,15 @@ export default function ContentPage() {
       dispatch({type:'pagination', payload: 1})
       setMovType(item)
     }
+
+    useEffect(()=>{
+        fetch(`https://www.omdbapi.com/?apikey=c1f4b487&page=${pagin}&s=${str}&type=${movType}`)
+        .then((res)=>res.json())
+        .then(res=>setData(res))
+    },[str, pagin, movType])
+
+console.log(data);
+
   return (
     <div className='content'>
        <div className="genres">
@@ -33,9 +42,9 @@ export default function ContentPage() {
           )
         }
         </div> 
-        <h4>по вашему запросу нашлось: {data?.totalResults}</h4>
+        {/* <h4>по вашему запросу нашлось: {data?.totalResults}</h4> */}
         <div className="cards"> 
-        {
+        {/* {
         isLoading 
         ? 
         <Loading/>
@@ -49,7 +58,7 @@ export default function ContentPage() {
         data?.Search.map((item:any, index:number)=><Card item={item} key={index}/>)
         : 
         <h1>По Вашему запросу ничего не найдено</h1> 
-          }
+          } */}
       
         </div>
         <Pagination/>
