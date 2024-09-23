@@ -31,7 +31,6 @@ export default function ContentPage() {
           >{item}
           </button>
           )
-
         }
         </div> 
         <h4>по вашему запросу нашлось: {data?.totalResults}</h4>
