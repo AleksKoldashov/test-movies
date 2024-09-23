@@ -7,7 +7,7 @@ import './pageStyles.css';
 
 export default function CardPage() {
     const idmovie = useParams();
-    const {state, dispatch} = React.useContext<any>(MyReduserContext);
+    const {state} = React.useContext<any>(MyReduserContext);
     const id = idmovie.idmovies;
     // const {data, error, isLoading}=useGetMoviesIdQuery(id);
     const favorites =state.favorites;
