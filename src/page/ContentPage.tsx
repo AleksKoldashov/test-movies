@@ -12,7 +12,7 @@ export default function ContentPage() {
     const pagin = state.pagination;
     const [movType, setMovType]=useState('movie');
 
-    // const [data, setData]=useState<any>()
+ 
     const {data, error, isLoading}=useGetMoviesQuery({str,pagin, movType});
 
     const arrGenres=['movie', 'series','episode']
@@ -23,13 +23,7 @@ export default function ContentPage() {
       setMovType(item)
     }
 
-//     useEffect(()=>{
-//         fetch(`https://www.omdbapi.com/?apikey=c1f4b487&page=${pagin}&s=${str}&type=${movType}`)
-//         .then((res)=>res.json())
-//         .then(res=>setData(res))
-//     },[str, pagin, movType])
 
-console.log(data);
 
   return (
     <div className='content'>
