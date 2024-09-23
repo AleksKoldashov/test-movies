@@ -36,7 +36,13 @@ export default function ContentPage() {
         <h4>по вашему запросу нашлось: {data?.totalResults}</h4>
         <div className="cards"> 
         {
-        isLoading ? <Loading/>
+        isLoading 
+        ? 
+        <Loading/>
+        :
+        error 
+        ?
+        <p>error</p>
         :
         !data.Error
         ? 

@@ -27,6 +27,10 @@ export default function CardPage() {
     ? 
     <Loading/>
     :
+    error
+    ?
+    <p>error</p>
+    :
     data && <div className='card-page'>
     <h1>{data.Title}</h1>
     <img src={data.Poster} alt="" />

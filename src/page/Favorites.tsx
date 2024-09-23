@@ -4,7 +4,7 @@ import Card from '../components/Card';
 import './pageStyles.css';
 
 export default function Favorites() {
-  const {state, dispatch} = React.useContext<any>(MyReduserContext);
+  const {state} = React.useContext<any>(MyReduserContext);
   const data =state.favorites;
 
   return (

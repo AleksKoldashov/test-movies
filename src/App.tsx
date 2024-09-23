@@ -25,7 +25,7 @@ function handelClick(){
 
 useEffect(()=>{
   nav('/home')
-},[])
+},[nav])
 
   return (
     <MyReduserContext.Provider  value={{dispatch, state}}>
