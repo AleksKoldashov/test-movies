@@ -14,24 +14,24 @@ import Favorites from './page/Favorites';
 const router = createBrowserRouter([
   {
     element:  <App/>,
-    path: '/', 
+    path: '/test-movies', 
     errorElement: <ErrorPage/>,
     children: [
       {
         element:  <CardPage/>,
-        path: '/:idmovies', 
+        path: '/test-movies/:idmovies', 
         errorElement: <ErrorPage/>,
         children: []
       },
       {
         element:  <ContentPage/>,
-        path: '/home', 
+        path: '/test-movies/home', 
         errorElement: <ErrorPage/>,
         children: []
       },
       {
         element:  <Favorites/>,
-        path: '/favorites', 
+        path: '/test-movies/favorites', 
         errorElement: <ErrorPage/>,
         children: []
       },
