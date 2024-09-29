@@ -1,8 +1,11 @@
 .dark{
-
+  width: 100vw;
+  min-height: 100vh;
+  background-color: rgba(41, 41, 41, 1);
 }
 .ligth{
-  /* height: 1500px; */
+  width: 100vw;
+  height: 100vh;
   background-color: white;
 }
 
@@ -52,10 +55,9 @@ h3{
   -webkit-text-fill-color: transparent;
   background-clip: text;
   font-weight: 700;
+  margin: auto;
 }
 header img{
-  position: absolute;
-  left: 0;
   width: 300px;
   margin-left: 25px;
   width: 35px;
@@ -66,10 +68,22 @@ header img{
 nav{
   display: flex;
   align-items: center;
-  flex-direction: row-reverse;
+  justify-content: space-between;
+  /* flex-direction: row-reverse; */
   margin-right: 35px;
 }
-
+nav div{
+  display: flex;
+  align-items: center
+}
+.avatar{
+  font-size: 16px;
+  font-weight: 500;
+  background: linear-gradient(90deg, #13B0F5 -2.06%, #E70FAA 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
 
 /* content */
 .content{
@@ -125,39 +139,14 @@ nav{
   color: #E70FAA;
   cursor: pointer;
 }
-/* card */
-.cards{
-  flex-wrap: wrap;
-  width: 1000px;
-  margin-top: 25px;
-  display: flex;
-  gap: 15px;
-  height: 100%;
-}
-.card{
-  margin-top: 25px;
-  width: 150px;
-  height: 200px;
-  border: 1px solid black;
-  border-radius: 15px;
-  cursor: pointer;
-}
-.card img{
-  width: 150px;
-  height: 200px;
-}
-.card:hover{
-  width: 150px;
-  height: 200px;
-  border: 1px solid #13B0F5;
-  box-shadow: 0px 0px 20px #13B0F5;
-  border-radius: 15px;
-}
+
+
 /* pagination */
 .pagination{
   margin-top: 75px;
   display: flex;
   align-items: center;
+  justify-content: center
 }
 /* theme */
 .theme button {
@@ -184,4 +173,12 @@ nav{
   100% {transform: rotate(360deg);}
 }
 /* footer */
-
+footer{
+ width: 100%;
+ margin-top: 50px;
+ position: relative;
+ bottom: 0;
+ right: 0;
+ display: flex; 
+ justify-content: center;
+}

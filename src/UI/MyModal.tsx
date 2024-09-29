@@ -14,9 +14,11 @@ const modal=()=>{
                 onClick={()=>{setShowModal(false)}}
                 >&#10006;</button>
             </header>
-            {
-                props.content
-            }
+            <div className="modal-content">
+                    {
+                        props.content
+                    }
+            </div>
             <footer></footer>
         </div>
         <div className='opcy'></div>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createContext } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
@@ -10,6 +10,7 @@ import CardPage from './page/CardPage';
 import ContentPage from './page/ContentPage';
 import Favorites from './page/Favorites';
 
+export const ThemeContext=createContext(null)as any
 
 const router = createBrowserRouter([
   {
@@ -43,11 +44,11 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  
   <Provider store={store}>
     <React.StrictMode>
-      <RouterProvider router={router}/>
-     
+      <ThemeContext.Provider value='dark'>
+        <RouterProvider router={router}/>
+      </ThemeContext.Provider>
     </React.StrictMode>
   </Provider>
 

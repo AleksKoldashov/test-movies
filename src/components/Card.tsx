@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink} from 'react-router-dom'
 import noimg from '../img/noimg2.png'
-
+import './compStyles.css'
 
 
 

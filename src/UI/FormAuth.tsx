@@ -1,59 +1,65 @@
-import React, { useState } from 'react'
-import MyInput from './MyInput'
-import './uiStyles.css'
-import MyModal from './MyModal';
+import React from 'react';
+import MyInput from './MyInput';
+import './uiStyles.css';
+
 import { MyReduserContext } from '../redux/reducer';
 
+
 export default function FormAuth() {
-  const {state, dispatch} = React.useContext<any>(MyReduserContext);
-const modal =MyModal({content: 'Успешно зарегестрировался'})
-const user = MyInput({type:'text', placeholder:'Enter name....', name:'User name', CN:'myinput-auth', valid: true});
-const password=MyInput({type:'password', placeholder:'Enter password....', name:'Password', CN:'myinput-auth', valid: true})
-const [show, setShow]=useState(false)
-const Auth=()=>{
-  if (user.value.length>3) {
-    if (password.value.length>3) {
-        setShow(false)
-        dispatch({type:'auth', payload: {name:user.value, password: password.value}})
-        localStorage.setItem('user', JSON.stringify({name:user.value, password: password.value}))
-        modal.togleModal()
-    }
-  }else{
-    setShow(true)
-  }
-}
-const funExit=()=>{
-  dispatch({type:'auth', payload: false})
-  localStorage.clear()
+const {state, dispatch} = React.useContext<any>(MyReduserContext);
+
+const user:any = MyInput({type:'text', placeholder:'Enter name....', name:'User name', CN:'myinput-auth'});
+const password=MyInput({type:'password', placeholder:'Enter password....', name:'Password', CN:'myinput-auth'});
+
+
+const arr = [user, password];
+
+const Exit=()=>{
+
+  const server =JSON.parse(localStorage.getItem("server")as string);
+  const newArr = server.filter((item:any)=>item.id!==state.auth.id);
+  console.log(newArr);
+  
+  localStorage.setItem("server", JSON.stringify([...newArr, state.auth]));
+  dispatch({type:'auth', payload: false});
+  localStorage.setItem('user', JSON.stringify(false));
+
 }
 
+const Auth=(event:React.FormEvent<HTMLFormElement>)=>{
+  event.preventDefault()
+  const valid1 = state.server?.find((item:any)=>item.name===user.value)
+  if(valid1?.password==password?.value){
+    dispatch({type:'auth', payload: valid1})
+    localStorage.setItem('user', JSON.stringify(valid1))
+    console.log('success');
+  }else{
+    console.log('неверный пароль');
+  }  
+}
 
   return (
-    <form className='myform' >
-      {
-       modal.showModal ? modal.modal() : null
-      }
-     {show ? <label className='error-form'>no registery</label> : null}
-       {
-        user.input()
+    <form 
+    className='myform' 
+    onClick={(event)=>{Auth(event)}}
+    >
+        {
+        arr.map((item:any)=>
+        <>
+          {
+             item.input()
+          }
+        </>)
        }
        {
-        password.input()
-       }
-       {
-        state.auth 
+        !!state.auth 
         ?
-        <input 
-        type="button" 
-        value="Exit"
-        onClick={()=>{funExit()}}
-        />
+        <button 
+        type="submit"
+        onClick={()=>{Exit()}}
+        >Exit</button>
         :
-        <input 
-        type="button" 
-        value="Registery"
-        onClick={()=>{Auth()}}
-        />
+        <button type="submit">Войти</button>
        }
        
     </form>

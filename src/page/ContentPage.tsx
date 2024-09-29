@@ -8,11 +8,10 @@ import Pagination from '../components/Pagination';
 
 export default function ContentPage() {
     const {state, dispatch} = React.useContext<any>(MyReduserContext);
+    
     const str = state.valueSearch;
     const pagin = state.pagination;
     const [movType, setMovType]=useState('movie');
-
- 
     const {data, error, isLoading}=useGetMoviesQuery({str,pagin, movType});
 
     const arrGenres=['movie', 'series','episode']
@@ -51,8 +50,9 @@ export default function ContentPage() {
         !data.Error
         ? 
         data?.Search.map((item:any, index:number)=><Card item={item} key={index}/>)
-        : 
-        <h1>По Вашему запросу ничего не найдено</h1> 
+        :
+        <h1>По Вашему запросу ничего не найдено</h1>
+       
           }
       
         </div>

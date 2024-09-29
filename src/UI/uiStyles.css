@@ -3,12 +3,10 @@
     flex-direction: column;
     justify-content: space-between;
     position: fixed;
-    top: 150px;
+    top: 100px;
     left: 37%;
     min-width: 300px;
     width: 25%;
-    /* min-height: 400px; */
-    max-height: 100%;
     background-color: aliceblue;
     z-index: 10;
     border-radius: 10px;
@@ -33,9 +31,12 @@
     /* border-bottom-right-radius:10px;
     border-bottom-left-radius:10px; */
 }
+.modal-content{
+    display: flex;
+}
 .modal footer{
-    border-top-right-radius:10px;
-    border-top-left-radius:10px;
+    margin:auto;
+    border-radius: 10px;
     background-color: rgb(240, 226, 226);
     height: 50px;
 }
@@ -76,7 +77,14 @@
 .myinput-auth label{
     font-size: 12px;
 }
-.myinput-auth div{
+/* .myinput-auth div{
+    font-size: 12px;
+    position: absolute;
+    top: 55px;
+    color: red;
+} */
+
+.info-input{
     font-size: 12px;
     position: absolute;
     top: 55px;
@@ -99,3 +107,9 @@
 .myinput-auth::placeholder{
     padding: 5px;
 }
+/* input:valid{
+    background-color: #13B0F5;
+} */
+/* input:invalid{
+    border: 1px solid red;
+} */
