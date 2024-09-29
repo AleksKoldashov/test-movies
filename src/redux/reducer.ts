@@ -6,7 +6,6 @@ interface iUser{
     password:string;
     favorites: any [];
 }
-const clearuser={name: "", password: "", id: "", favorites: []}
 
 export const MyReduserContext = React.createContext({})as any
 const server = JSON.parse(localStorage.getItem('server')as string)
@@ -19,6 +18,7 @@ export const InitState:any ={
     auth: user,
     togelLogin: true,
     server: server,
+    theme: 'dark'
   }
 // localStorage.clear()
  
@@ -54,6 +54,10 @@ export const InitState:any ={
                 return{
                     ...state, 
                     togelLogin: action.payload}
+            case 'theme':
+                return{
+                    ...state, 
+                    theme: action.payload}
             default:
                 break;
         }

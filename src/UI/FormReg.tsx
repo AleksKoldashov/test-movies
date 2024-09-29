@@ -1,4 +1,4 @@
-import React, { useId, useState } from 'react';
+import React from 'react';
 import MyInput from './MyInput';
 import MyMessager from './MyMessager';
 import { MyReduserContext } from '../redux/reducer';
@@ -15,7 +15,7 @@ export interface iMyInput{
  }
 
 export default function FormReg() {
-  const {state, dispatch} = React.useContext<any>(MyReduserContext);
+  const {dispatch} = React.useContext<any>(MyReduserContext);
   const server: iServer [] = JSON.parse(localStorage.getItem('server')as string) || []
 
   const user: iMyInput = MyInput({type:'text', placeholder:'Enter name....', name: 'User name', cn:'myinput-auth'});
@@ -51,7 +51,6 @@ event.preventDefault()
     messagerPass.setShow(true)
     console.log('error');
   }
-
   }
 
   return (

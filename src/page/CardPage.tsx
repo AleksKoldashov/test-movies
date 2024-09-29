@@ -36,7 +36,7 @@ export default function CardPage() {
           :
               dispatch({type:'addFavorites',payload: data})
       :
-      modal.togleModal()
+      modal.togleModal(true)
     } 
   return (
     isLoading 

@@ -118,12 +118,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 16px;
-    opacity: 0;
+    font-size: 12px;
+    /* opacity: 0;
     transition:  0.5s;
     animation: show 1s 1;
     animation-fill-mode:forwards;
-    animation-delay: 1s;
+    animation-delay: 1s; */
 }
 
 @keyframes show{

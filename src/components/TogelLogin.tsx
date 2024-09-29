@@ -2,7 +2,7 @@ import React from 'react'
 import { MyReduserContext } from '../redux/reducer';
 
 export default function TogelLogin() {
-const {state, dispatch} = React.useContext<any>(MyReduserContext);
+const {dispatch} = React.useContext<any>(MyReduserContext);
 
 return (
     <>

@@ -22,12 +22,11 @@ const modal=()=>{
             <footer></footer>
         </div>
         <div className='opcy'></div>
-
         </>
       )
 }
-const togleModal=()=>{
-    setShowModal(()=>!showModal)
+const togleModal=(b:boolean)=>{
+    setShowModal(b)
 }
 return {modal, togleModal, showModal}
 }

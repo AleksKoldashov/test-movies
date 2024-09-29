@@ -1,4 +1,4 @@
-import React, { createContext } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
@@ -9,14 +9,8 @@ import ErrorPage from './page/ErrorPage';
 import CardPage from './page/CardPage';
 import ContentPage from './page/ContentPage';
 import Favorites from './page/Favorites';
-import * as Sentry from "@sentry/react";
-
-
-function FallbackComponent() {
-  return <div>An error has occurred</div>;
-}
-
-const myFallback = <FallbackComponent />;
+import { ErrorBoundary } from 'react-error-boundary';
+import ErrorFallback from './Utilits/ErrorFallback';
 
 
 
@@ -55,9 +49,14 @@ const root = ReactDOM.createRoot(
 root.render(
   <Provider store={store}>
     <React.StrictMode>
-        <Sentry.ErrorBoundary fallback={myFallback} showDialog>
+       <ErrorBoundary 
+       FallbackComponent={ErrorFallback}
+       onReset={()=>console.log('error')}
+       >
         <RouterProvider router={router}/>
-        </Sentry.ErrorBoundary>
+       </ErrorBoundary>
+        
+      
     </React.StrictMode>
   </Provider>
 
