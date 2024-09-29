@@ -5,14 +5,13 @@ import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 import { InitState, MyReduserContext, reducer } from './redux/reducer';
 import MyModal from './UI/MyModal';
 import FormAuth from './UI/FormAuth';
-import { ThemeContext } from '.';
 import TogelLogin from './components/TogelLogin';
 import FormReg from './UI/FormReg';
 
 function App() {
   const nav = useNavigate()
   
-  const theme2 = React.useContext(ThemeContext);
+ 
 
   
   const [state, dispatch] = React.useReducer(reducer, InitState);

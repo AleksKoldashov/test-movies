@@ -12,8 +12,10 @@ useEffect(()=>{
   setValue('')
 },[])
 const input=()=>{
+
+  
     return (
-        <div className={props.CN}>
+        <div className={props.cn} >
         <label>{props.name}</label>
         <input 
         {...props}

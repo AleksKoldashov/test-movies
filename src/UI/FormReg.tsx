@@ -15,10 +15,10 @@ export interface iMyInput{
 export default function FormReg() {
   const server: iServer [] = JSON.parse(localStorage.getItem('server')as string) || []
 
-  const user: iMyInput = MyInput({type:'text', placeholder:'Enter name....', name: 'User name', CN:'myinput-auth'});
-  const password: iMyInput=MyInput({type:'password', placeholder:'Enter password....', name:'Password', CN:'myinput-auth'});
-  const repeatpassword: iMyInput=MyInput({type:'password', placeholder:'Enter repeatpassword....', name:'repeatpassword', CN:'myinput-auth'});
-  const arr: iMyInput [] = [user, password, repeatpassword]
+  const user: iMyInput = MyInput({type:'text', placeholder:'Enter name....', name: 'User name', cn:'myinput-auth'});
+  const password: iMyInput=MyInput({type:'password', placeholder:'Enter password....', name:'Password', cn:'myinput-auth'});
+  const repeatpassword: iMyInput=MyInput({type:'password', placeholder:'Enter repeatpassword....', name:'repeatpassword', cn:'myinput-auth'});
+  const arr:any [] = [{id:1, name:user}, {id:2, name: password}, {id:3, name: repeatpassword}]
   
 // localStorage.clear()
 
@@ -43,7 +43,6 @@ event.preventDefault()
 
   }
 
-
   return (
     <form 
     className='myform' 
@@ -51,7 +50,7 @@ event.preventDefault()
     onSubmit={(event)=>{Registery(event)}}
     >
        {
-        arr.map((item)=>item.input())
+        arr.map((item)=><div key={item.id}>{item.name.input()}</div>)
        }
     <button 
     type="submit"

@@ -8,11 +8,11 @@ import { MyReduserContext } from '../redux/reducer';
 export default function FormAuth() {
 const {state, dispatch} = React.useContext<any>(MyReduserContext);
 
-const user:any = MyInput({type:'text', placeholder:'Enter name....', name:'User name', CN:'myinput-auth'});
-const password=MyInput({type:'password', placeholder:'Enter password....', name:'Password', CN:'myinput-auth'});
+const user:any = MyInput({type:'text', placeholder:'Enter name....', name:'User name', cn:'myinput-auth'});
+const password=MyInput({type:'password', placeholder:'Enter password....', name:'Password', cn:'myinput-auth'});
 
 
-const arr = [user, password];
+const arr = [{id: 1, name: user},{id:2, name: password}];
 
 const Exit=()=>{
 
@@ -44,13 +44,7 @@ const Auth=(event:React.FormEvent<HTMLFormElement>)=>{
     onClick={(event)=>{Auth(event)}}
     >
         {
-        arr.map((item:any)=>
-        <>
-          {
-             item.input()
-          }
-        </>)
-       }
+        arr.map((item:any)=> <div key={item.id}>{item.name.input()}</div>)}
        {
         !!state.auth 
         ?

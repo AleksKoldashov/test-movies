@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { MyReduserContext } from '../redux/reducer';
 import Card from '../components/Card';
 import './pageStyles.css';
+import PaginationFavorites from '../components/PaginationFavorites';
 
 
 export default function Favorites() {
@@ -9,7 +10,6 @@ export default function Favorites() {
   const [str, setStr]=useState<string>('')
   const [sidebar, setSidebar]=useState<string[]>()
   const [search, setSearch]=useState<[]>([])
-  const [pagin, setPagin]=useState<any>({page:1, left:0, rigth:6})
   const data =state.auth?.favorites;
   const arrSidebar =['Genre','Country','Director','Actors','Year','imdbRating','All']
 
@@ -43,29 +43,7 @@ export default function Favorites() {
     setSearch(arr)
   }
 
-const Pagination=(arr?:any[])=>{
-      const newArr=arr?.slice(pagin.left,pagin.rigth)
-      let length = arr?.length as number
-      console.log(pagin.page);
-      let valid = Math.ceil(length/6)
-      console.log(valid);
-        const Incriment=()=>{
-          if(pagin.page<valid){
-            setPagin({page:pagin.page+1, left: pagin.left+6, rigth: pagin.rigth+6})
-          }
-        } 
-        const Dicriment=()=>{
-          if(pagin.page>1){
-            setPagin({page:pagin.page-1, left: pagin.left-6, rigth: pagin.rigth-6})
-          }
-          
-        }   
-       
-        return {newArr, Incriment, Dicriment}
-      
-      
-  }
-Pagination(data)
+
   return (
     <div className='favorites'>
        { 
@@ -94,35 +72,26 @@ Pagination(data)
          <>
          <div className='favorites-sort'>
               {
-              arrSidebar?.map((item:any)=>
+              arrSidebar?.map((item:any, index)=>
                <button
+               key={`key${index}`}
+               type='button'
                onClick={()=>{funcSudebar(item)}}
                >{item}
                </button>
             )
               }
           </div>
-          <div className='favorites-cards'>
+          <>
               {
                 search?.length
                 ?
-                search?.map((item:any)=><Card item={item}/>)
+                <PaginationFavorites arr={search}/>
                 :
-                Pagination(data).newArr?.map((item:any)=><Card item={item}/>)
+                <PaginationFavorites arr={data}/>
               }
-            
-           </div>
-          <div className="pagination">
-          <button
-          type='button'
-          onClick={()=>{Pagination(data).Dicriment()}}
-          >&lt;</button>
-          <div>{pagin.page}</div>
-          <button
-          type='button'
-          onClick={()=>{Pagination(data).Incriment()}}
-          >&gt;</button>
-          </div>
+           </>
+          
          </>    
           }
         </div>

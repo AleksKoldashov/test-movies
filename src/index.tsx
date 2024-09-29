@@ -9,8 +9,17 @@ import ErrorPage from './page/ErrorPage';
 import CardPage from './page/CardPage';
 import ContentPage from './page/ContentPage';
 import Favorites from './page/Favorites';
+import * as Sentry from "@sentry/react";
 
-export const ThemeContext=createContext(null)as any
+
+function FallbackComponent() {
+  return <div>An error has occurred</div>;
+}
+
+const myFallback = <FallbackComponent />;
+
+
+
 
 const router = createBrowserRouter([
   {
@@ -46,9 +55,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <Provider store={store}>
     <React.StrictMode>
-      <ThemeContext.Provider value='dark'>
+        <Sentry.ErrorBoundary fallback={myFallback} showDialog>
         <RouterProvider router={router}/>
-      </ThemeContext.Provider>
+        </Sentry.ErrorBoundary>
     </React.StrictMode>
   </Provider>
 
