@@ -35,6 +35,7 @@ useEffect(()=>{
 
   return (
     <MyReduserContext.Provider  value={{dispatch, state}}>
+    
     {
        modal.showModal ? modal.modal() : null
     }

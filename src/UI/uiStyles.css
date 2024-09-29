@@ -107,9 +107,30 @@
 .myinput-auth::placeholder{
     padding: 5px;
 }
-/* input:valid{
-    background-color: #13B0F5;
-} */
-/* input:invalid{
-    border: 1px solid red;
-} */
+.mymessager{
+    position: absolute;
+    top: -50px;
+    left: auto;
+    width: 100%;
+    background-color: white;
+    height: 35px;
+    border-radius: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    opacity: 0;
+    transition:  0.5s;
+    animation: show 1s 1;
+    animation-fill-mode:forwards;
+    animation-delay: 1s;
+}
+
+@keyframes show{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
