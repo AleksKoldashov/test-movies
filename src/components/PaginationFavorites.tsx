@@ -1,8 +1,13 @@
 import React from 'react'
 import Card from './Card';
+interface iPagin{
+  page: number;
+  left: number;
+  rigth: number;
+}
 
 export default function PaginationFavorites({...arr}) {
-    const [pagin, setPagin]=React.useState<any>({page:1, left:0, rigth:6})
+    const [pagin, setPagin]=React.useState<iPagin>({page:1, left:0, rigth:6})
 
     const newArr=arr.arr?.slice(pagin.left,pagin.rigth)
     let length = arr.arr?.length as number
@@ -25,7 +30,7 @@ export default function PaginationFavorites({...arr}) {
         ?
         newArr?.map((item:any)=><Card item={item} key={item.imdbID}/>)
         :
-        <h3>нет подходящих фильмов</h3>
+        <h3>no suitable films</h3>
     }
     </div>
     <div className="pagination">

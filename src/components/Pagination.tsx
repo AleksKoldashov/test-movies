@@ -12,10 +12,12 @@ function handelDecriment() {
   return (
     <div className="pagination">
           <button
+          type='button'
           onClick={()=>{handelDecriment()}}
           >&lt;</button>
           <div>{state.pagination}</div>
           <button
+          type='button'
           onClick={()=>{dispatch({type:'pagination', payload:state.pagination+1})}}
           >&gt;</button>
         </div>

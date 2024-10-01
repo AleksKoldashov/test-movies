@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './uiStyles.css'
 
 
+
 export default function MyInput({...props}) {
 const [value, setValue]=useState<string>('')
 const [debouncedInputValue, setDebouncedInputValue] = React.useState("");
@@ -37,5 +38,5 @@ const input=()=>{
        
       )
 }
-  return {input, value: debouncedInputValue}
+  return {input, value: debouncedInputValue, setValue}
 }

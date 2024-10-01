@@ -1,53 +1,14 @@
 .favorites{
    position: relative;
-   margin: 50px;
-   width: 100vw;
-   /* height: 500px; */
    display: flex;
    justify-content: center;
+   flex-direction: column;
 }
-.sidebar{
-    position: absolute;
-    font-size: 15px;
-    top: 50px;
-    left: 0px;
-    min-width: 200px;
-    /* min-height: 400px; */
-    height: 100%;
-    /* min-height: 300px; */
-    /* max-height: 100vh; */
-    overflow-x: hidden;
-    direction: rtl;
-    border-radius: 30px;
-    display: flex;
-    flex-direction: column;
-    /* justify-content: space-evenly; */
-    align-items: center;
-}
-.sidebar button{
-    margin: 5px;
-}
+
 .card-page{
     margin: 50px;
 }
 
-/* card */
-.cards{
-    margin: auto;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 1000px;
-    margin-top: 25px;
-    display: flex;
-    gap: 25px;
-}
-.wrapper-card{
-    display: flex;
-    flex-direction: row;
-}
-.wrapper-card div{
-    margin-left: 25px;
-}
 .red{
     color: red;
 }
@@ -55,19 +16,85 @@
     color: gold;
 }
 
-.favorites-sort{
-    display: flex;
-    justify-content: center;
+@media (min-width: 901px) {
+    .favorites-cards{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 25px;
+        margin-left: 200px;
+    }
+    .favorites-sort{
+        display: flex;
+        justify-content: center;
+    }
+    .wrapper-card{
+        display: flex;
+        flex-direction: row;
+    }
+    .wrapper-card div{
+        margin-left: 25px;
+    }
+    .cards{
+        margin: auto;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 1000px;
+        margin-top: 25px;
+        display: flex;
+        gap: 25px;
+    }
+    .sidebar{
+        position: absolute;
+        font-size: 15px;
+        top: 50px;
+        left: 0px;
+        min-width: 200px;
+        height: 100%;
+        overflow-x: hidden;
+        direction: rtl;
+        border-radius: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .sidebar button{
+        margin: 5px;
+    }
 }
-.favorites-cards{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    height: 500px;
-    width: 700px;
-    gap: 25px;
+@media (max-width: 900px) {
+    .favorites-cards{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 25px;
+    }
+    .favorites-sort{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .wrapper-card div{
+        margin-left: 25px;
+    }
+    .cards{
+        margin: auto;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 400px;
+        margin-top: 25px;
+        display: flex;
+        gap: 25px;
+    }
 }
+
 .favorites h3{
     text-align: center;
 }
 
+/* genres */
+
+.genres a{
+    color: #E70FAA;
+    cursor: pointer;
+  }

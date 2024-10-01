@@ -112,51 +112,8 @@ nav div{
   justify-content: center;
 }
 
-/* search */
-.search {
-  margin: auto;
-  width: 700px;
-  justify-content: space-between;
-  display: flex;
-  align-items: center;
-}
-.my-input{
-    display: block;
-    width: 500px;
-    height: 38px;
-    background-color: rgba(30, 30, 30, 1);
-    padding: 5px;
-    background-clip: padding-box;
-    color:#13B0F5;
-    font-size: 16px;
-    border-radius: 30px;
-    border: none;
-    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
-.my-input::placeholder{
-  /* color: #13B0F5(255, 255, 255, 1); */
-  font-size: 16px;
-}
-.my-input:focus{
-    background-color: rgba(30, 30, 30, 1);
-}
-.my-input:hover{
-    background-color: rgba(30, 30, 30, 1);
-}
-.search button{
-  color: #13B0F5;
-  background-color: rgba(30, 30, 30, 1);
-  border-radius: 30px;
-  width: 150px;
-  height: 48px;
-  cursor: pointer;
-}
-/* genres */
 
-.genres a{
-  color: #E70FAA;
-  cursor: pointer;
-}
+
 
 
 /* pagination */

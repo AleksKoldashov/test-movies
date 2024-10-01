@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { MyReduserContext } from '../redux/reducer';
 import './pageStyles.css';
 import PaginationFavorites from '../components/PaginationFavorites';
@@ -73,14 +73,14 @@ export default function Favorites() {
     setRatingSearch([])
   }
   const funcSearchRating=(item:any)=>{
-    console.log(item);
     const arr = data?.filter((i:any)=>parseInt(i.imdbRating)===item)
-    console.log(arr);
     setRatingSearch(arr)
     setSearch([])
   }
 
-
+useEffect(()=>{
+  funcSearch('Genre')
+},[])
 
 
   return (
@@ -100,7 +100,6 @@ export default function Favorites() {
            )}
         </div>
         :
-       
         rating
         ? 
         <div className="sidebar">
@@ -118,15 +117,15 @@ export default function Favorites() {
         :null
         }
         
-        <div >
+        
           {  
           data===undefined 
           ?
-          <h3>неопходима авторизация</h3>
+          <h3>Authorization required</h3>
           :
           data.length === 0 
           ?
-          <h3>Вы пока ничего не добавили</h3>
+          <h3>You haven't added anything yet</h3>
           :
          <>
          <div className='favorites-sort'>
@@ -157,7 +156,7 @@ export default function Favorites() {
           
          </>    
           }
-        </div>
+       
     </div>
   )
 }

@@ -1,19 +1,19 @@
 import React from 'react';
 import MyInput from './MyInput';
 import './uiStyles.css';
-
 import { MyReduserContext } from '../redux/reducer';
 import MyMessager from './MyMessager';
+import { iArrInput, iMyInput } from './FormReg';
 
 
 export default function FormAuth() {
 const {state, dispatch} = React.useContext<any>(MyReduserContext);
 
-const user:any = MyInput({type:'text', placeholder:'Enter name....', name:'User name', cn:'myinput-auth'});
-const password=MyInput({type:'password', placeholder:'Enter password....', name:'Password', cn:'myinput-auth'});
+const user:iMyInput = MyInput({type:'text', placeholder:'Enter name....', name:'User name', cn:'myinput-auth'});
+const password:iMyInput=MyInput({type:'password', placeholder:'Enter password....', name:'Password', cn:'myinput-auth'});
 const messagerSuccess = MyMessager({title:'Успешно!!!', style:{color: 'green'}})
 const messagerError = MyMessager({title:'Неверный пароль или имя пользователя', style:{color: 'red'}})
-const arr = [{id: 1, name: user},{id:2, name: password}];
+const arr:iArrInput [] = [{id: 1, name: user},{id:2, name: password}];
 
 const Exit=()=>{
 
@@ -57,7 +57,7 @@ setTimeout(()=>messagerError.setShow(false),10000)
     onSubmit={(event)=>{Auth(event)}}
     >
         {
-        arr.map((item:any)=> <div key={item.id}>{item.name.input()}</div>)}
+        arr.map((item:iArrInput)=> <div key={item.id}>{item.name.input()}</div>)}
        {
         !!state.auth 
         ?
@@ -68,7 +68,7 @@ setTimeout(()=>messagerError.setShow(false),10000)
         :
         <button 
         type="submit"
-        >Войти</button>
+        >Login</button>
        }
        
     </form>

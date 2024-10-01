@@ -1,7 +1,6 @@
-import React, { Suspense, useState } from 'react';
+import React, { Suspense, useRef, useState } from 'react';
 import { useGetMoviesQuery } from '../service/movies';
 import Loading from '../UI/Loading';
-// import Card from '../components/Card';
 import { MyReduserContext } from '../redux/reducer';
 import Pagination from '../components/Pagination';
 
@@ -21,7 +20,8 @@ export interface iDataArray10{
 
 export default function ContentPage() {
     const {state, dispatch} = React.useContext<any>(MyReduserContext);
-
+   
+    
     const str = state.valueSearch;
     const pagin = state.pagination;
     const [movType, setMovType]=useState('movie');
@@ -34,14 +34,11 @@ export default function ContentPage() {
       dispatch({type:'pagination', payload: 1})
       setMovType(item)
     }
-
-
-
   return (
     <div className='content'>
        <div className="genres">
         {
-          arrGenres.map((item, index)=><button 
+          arrGenres.map((item)=><button 
           type='button'
           key={item.id}
           onClick={()=>{handelType(item)}}
@@ -50,7 +47,6 @@ export default function ContentPage() {
           )
         }
         </div> 
-        {/* <h4>по вашему запросу нашлось: {data?.totalResults}</h4> */}
         <div className="cards"> 
         {
         isLoading 
@@ -63,16 +59,14 @@ export default function ContentPage() {
         :
         !data.Error
         ? 
-        data?.Search.map((item:iDataArray10, index:number)=>
-          <Suspense fallback={<Loading/>}>
-            <Card item={item} key={item.imdbID}/>
+        data?.Search.map((item:iDataArray10)=>
+          <Suspense fallback={<Loading/>} key={item.imdbID}>
+            <Card item={item} />
           </Suspense>
       )
         :
-        <h1>По Вашему запросу ничего не найдено</h1>
-       
+        <h1>Nothing was found for your request</h1>
           }
-      
         </div>
         <Pagination/>
     </div>
