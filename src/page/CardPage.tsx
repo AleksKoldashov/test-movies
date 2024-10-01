@@ -16,9 +16,7 @@ export default function CardPage() {
     const id = idmovie.idmovies;
     const {data, error, isLoading}=useGetMoviesIdQuery(id);
     const favorites =state.auth?.favorites;
-
-
-    
+ 
     const matchChecking=()=>{
         const value = favorites?.some((item:any)=>item.imdbID===id)
         return value

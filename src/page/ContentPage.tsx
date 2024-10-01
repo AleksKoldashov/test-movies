@@ -4,13 +4,14 @@ import Loading from '../UI/Loading';
 // import Card from '../components/Card';
 import { MyReduserContext } from '../redux/reducer';
 import Pagination from '../components/Pagination';
-interface iData{
+
+export interface iData{
   Search: iDataArray10 [];
   totalResults:string;
   Response: string;
 }
 
-interface iDataArray10{
+export interface iDataArray10{
   Poster:string;
   Title:string;
   Type:string;
@@ -20,7 +21,7 @@ interface iDataArray10{
 
 export default function ContentPage() {
     const {state, dispatch} = React.useContext<any>(MyReduserContext);
-    
+
     const str = state.valueSearch;
     const pagin = state.pagination;
     const [movType, setMovType]=useState('movie');
@@ -28,8 +29,7 @@ export default function ContentPage() {
 
     const arrGenres=[{id:1, name: 'movie'}, {id:2,name: 'series'},{id:3,name:'episode'}]
     const Card = React.lazy(()=> import('../components/Card'))
-   console.log(data);
-   
+
     const handelType: any=(item:any)=>{
       dispatch({type:'pagination', payload: 1})
       setMovType(item)
