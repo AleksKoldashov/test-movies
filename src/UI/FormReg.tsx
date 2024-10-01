@@ -28,6 +28,7 @@ export default function FormReg() {
 // localStorage.clear()
 
 
+
 const Registery =(event:React.FormEvent<HTMLFormElement>) => {
 event.preventDefault()
   if(password.value===repeatpassword.value){

@@ -9,23 +9,33 @@ import TogelLogin from './components/TogelLogin';
 import FormReg from './UI/FormReg';
 import Theme from './components/Theme';
 
+
 function App() {
   const nav = useNavigate()
   const [state, dispatch] = React.useReducer(reducer, InitState);
- 
-  const [input, setInput]=useState<string>('')
-  const modal=MyModal({title:<TogelLogin/>, content: state.togelLogin ? <FormAuth/>: <FormReg/>})
 
+  const [input, setInput]=useState<string>('')
+  const [debouncedInputValue, setDebouncedInputValue] = React.useState("");
+  const modal=MyModal({title:<TogelLogin/>, content: state.togelLogin ? <FormAuth/>: <FormReg/>})
 
 const handelValue:React.ChangeEventHandler<HTMLInputElement> =(e)=>{
     setInput(e.target.value)
 }
+
+
 function handelClick(){
   nav('/home')
   dispatch({type:'pagination', payload: 1})
-  dispatch({type:'updateStr', payload: input})
+  dispatch({type:'updateStr', payload: debouncedInputValue})
   setInput('')
 }
+
+React.useEffect(() => {
+  const timeoutId = setTimeout(() => {
+    setDebouncedInputValue(input);
+  }, 500);
+  return () => clearTimeout(timeoutId);
+}, [input, 1000]);
 
 useEffect(()=>{
   nav('/home')
@@ -69,7 +79,13 @@ useEffect(()=>{
             </div>
         </nav>
         <div className="search">
-              <input type="text" placeholder='enter movie title....' className='my-input' onChange={handelValue} value={input}/>
+              <input 
+              type="text" 
+              placeholder='enter movie title....' 
+              className='my-input' 
+              onChange={handelValue}
+              value={input}
+              />
               <button 
               type="button"
               onClick={()=>{handelClick()}}
