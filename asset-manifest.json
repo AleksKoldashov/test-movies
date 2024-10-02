@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/test-movies/static/css/main.fd1323c2.css",
-    "main.js": "/test-movies/static/js/main.233d9832.js",
+    "main.js": "/test-movies/static/js/main.505b04ca.js",
     "static/media/oblivion.jpg": "/test-movies/static/media/oblivion.9fd1ae1c8760809dfd0a.jpg",
     "static/media/supermen.jpg": "/test-movies/static/media/supermen.f95bc1cf02bd7f692610.jpg",
     "static/media/logoMovie.png": "/test-movies/static/media/logoMovie.be5809ea77d2d0c8d116.png",
     "index.html": "/test-movies/index.html",
     "main.fd1323c2.css.map": "/test-movies/static/css/main.fd1323c2.css.map",
-    "main.233d9832.js.map": "/test-movies/static/js/main.233d9832.js.map"
+    "main.505b04ca.js.map": "/test-movies/static/js/main.505b04ca.js.map"
   },
   "entrypoints": [
     "static/css/main.fd1323c2.css",
-    "static/js/main.233d9832.js"
+    "static/js/main.505b04ca.js"
   ]
 }
