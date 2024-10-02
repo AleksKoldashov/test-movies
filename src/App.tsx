@@ -11,6 +11,7 @@ import Theme from './components/Theme';
 import SearchMovies from './components/SearchMovies';
 
 
+
 function App() {
   const nav = useNavigate()
   const [state, dispatch] = React.useReducer(reducer, InitState);

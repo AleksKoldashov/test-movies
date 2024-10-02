@@ -21,8 +21,6 @@ React.useEffect(() => {
   return () => clearTimeout(timeoutId);
 }, [value, 1000]);
 
-
-
 const input=()=>{
     return (
         <div className={props.cn} >

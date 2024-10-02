@@ -1,4 +1,4 @@
-import React, { Suspense, useRef, useState } from 'react';
+import React, { Suspense,useState } from 'react';
 import { useGetMoviesQuery } from '../service/movies';
 import Loading from '../UI/Loading';
 import { MyReduserContext } from '../redux/reducer';
@@ -41,7 +41,7 @@ export default function ContentPage() {
           arrGenres.map((item)=><button 
           type='button'
           key={item.id}
-          onClick={()=>{handelType(item)}}
+          onClick={()=>{handelType(item.name)}}
           >{item.name}
           </button>
           )

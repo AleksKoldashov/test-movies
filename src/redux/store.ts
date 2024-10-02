@@ -1,5 +1,6 @@
-import { configureStore } from '@reduxjs/toolkit';
+import {  configureStore } from '@reduxjs/toolkit';
 import { moviesApi } from '../service/movies';
+import { MyMiddleware } from './MyMiddleware';
 
 
 export const store = configureStore({
@@ -8,8 +9,11 @@ export const store = configureStore({
     },
 
     middleware:(getDefaultMiddleware)=>
-        getDefaultMiddleware().concat(moviesApi.middleware)
+        getDefaultMiddleware().concat(moviesApi.middleware, MyMiddleware)
   })
-
 export type RootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch
+
+
+
+

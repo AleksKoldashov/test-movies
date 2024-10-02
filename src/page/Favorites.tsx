@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, {useState} from 'react'
 import { MyReduserContext } from '../redux/reducer';
 import './pageStyles.css';
 import PaginationFavorites from '../components/PaginationFavorites';
@@ -61,8 +61,7 @@ export default function Favorites() {
       }
       setSidebar(res);
       setRating([]);
-    }
-    
+    } 
   }
 
   const funcSearch=(item:any)=>{
@@ -77,11 +76,6 @@ export default function Favorites() {
     setRatingSearch(arr)
     setSearch([])
   }
-
-useEffect(()=>{
-  funcSearch('Genre')
-},[])
-
 
   return (
     <div className='favorites'>
@@ -111,13 +105,10 @@ useEffect(()=>{
             onClick={()=>funcSearchRating(parseInt(item.num))}
           >{item.sign}{item.num}</button>
           )
-         
           }
         </div>
         :null
         }
-        
-        
           {  
           data===undefined 
           ?
