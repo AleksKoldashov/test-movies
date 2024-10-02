@@ -1,18 +1,18 @@
 import React from 'react';
-import MyInput from './MyInput';
+import useInput from '../hooks/useInput';
 import './uiStyles.css';
 import { MyReduserContext } from '../redux/reducer';
-import MyMessager from './MyMessager';
+import useMessager from '../hooks/useMessager';
 import { iArrInput, iMyInput } from './FormReg';
 
 
 export default function FormAuth() {
 const {state, dispatch} = React.useContext<any>(MyReduserContext);
 
-const user:iMyInput = MyInput({type:'text', placeholder:'Enter name....', name:'User name', cn:'myinput-auth'});
-const password:iMyInput=MyInput({type:'password', placeholder:'Enter password....', name:'Password', cn:'myinput-auth'});
-const messagerSuccess = MyMessager({title:'Успешно!!!', style:{color: 'green'}})
-const messagerError = MyMessager({title:'Неверный пароль или имя пользователя', style:{color: 'red'}})
+const user:iMyInput = useInput({type:'text', placeholder:'Enter name....', name:'User name', cn:'myinput-auth'});
+const password:iMyInput=useInput({type:'password', placeholder:'Enter password....', name:'Password', cn:'myinput-auth'});
+const messagerSuccess = useMessager({title:'Успешно!!!', style:{color: 'green'}})
+const messagerError = useMessager({title:'Неверный пароль или имя пользователя', style:{color: 'red'}})
 const arr:iArrInput [] = [{id: 1, name: user},{id:2, name: password}];
 
 const Exit=()=>{

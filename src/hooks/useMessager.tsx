@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function MyMessager({...props}) {
+export default function useMessager({...props}) {
 
     const [show, setShow]=React.useState(false)
    

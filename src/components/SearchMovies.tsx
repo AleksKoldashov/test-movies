@@ -1,12 +1,12 @@
 import React from 'react'
 import { MyReduserContext } from '../redux/reducer';
 import { useNavigate } from 'react-router-dom';
-import MyInput from '../UI/MyInput';
+import useInput from '../hooks/useInput';
 
 export default function SearchMovies() {
   const nav = useNavigate()
   const {dispatch} = React.useContext<any>(MyReduserContext); 
-  const inputSearch=MyInput({placeholder:'enter movie title....',type:"text",className:'my-input'}) 
+  const inputSearch=useInput({placeholder:'enter movie title....',type:"text",className:'my-input'}) 
 
 function handelClick(){
     nav('/home')

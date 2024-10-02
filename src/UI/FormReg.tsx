@@ -1,6 +1,6 @@
 import React from 'react';
-import MyInput from './MyInput';
-import MyMessager from './MyMessager';
+import useInput from '../hooks/useInput';
+import useMessager from '../hooks/useMessager';
 import { MyReduserContext } from '../redux/reducer';
 export interface iServer {
   name:string | number;
@@ -21,13 +21,13 @@ export default function FormReg() {
   const {dispatch} = React.useContext<any>(MyReduserContext);
   const server: iServer [] = JSON.parse(localStorage.getItem('server')as string) || []
 
-  const user: iMyInput = MyInput({type:'text', placeholder:'Enter name....', name: 'User name', cn:'myinput-auth'});
-  const password: iMyInput=MyInput({type:'password', placeholder:'Enter password....', name:'Password', cn:'myinput-auth'});
-  const repeatpassword: iMyInput=MyInput({type:'password', placeholder:'Enter repeatpassword....', name:'repeatpassword', cn:'myinput-auth'});
+  const user: iMyInput = useInput({type:'text', placeholder:'Enter name....', name: 'User name', cn:'myinput-auth'});
+  const password: iMyInput=useInput({type:'password', placeholder:'Enter password....', name:'Password', cn:'myinput-auth'});
+  const repeatpassword: iMyInput=useInput({type:'password', placeholder:'Enter repeatpassword....', name:'repeatpassword', cn:'myinput-auth'});
   const arr:iArrInput [] = [{id:1, name:user}, {id:2, name: password}, {id:3, name: repeatpassword}]
-  const messagerUser = MyMessager({title:'Such a user exists!!!', style:{color: 'red'}})
-  const messagerPass = MyMessager({title:'Different passwords!!!', style:{color: 'red'}})
-  const messagerSuccess = MyMessager({title:'Successfully!!!', style:{color: 'green'}})
+  const messagerUser = useMessager({title:'Such a user exists!!!', style:{color: 'red'}})
+  const messagerPass = useMessager({title:'Different passwords!!!', style:{color: 'red'}})
+  const messagerSuccess = useMessager({title:'Successfully!!!', style:{color: 'green'}})
 
 
 

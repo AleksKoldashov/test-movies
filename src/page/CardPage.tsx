@@ -4,7 +4,7 @@ import { useGetMoviesIdQuery } from '../service/movies';
 import { MyReduserContext } from '../redux/reducer';
 import './pageStyles.css';
 import Loading from '../UI/Loading';
-import MyModal from '../UI/MyModal';
+import useModal from '../hooks/useModal';
 import TogelLogin from '../components/TogelLogin';
 import FormAuth from '../UI/FormAuth';
 import FormReg from '../UI/FormReg';
@@ -12,7 +12,7 @@ import FormReg from '../UI/FormReg';
 export default function CardPage() {
     const idmovie = useParams();
     const {state,dispatch} = React.useContext<any>(MyReduserContext);
-    const modal = MyModal({title:<TogelLogin/>, content: state.togelLogin ? <FormAuth/>: <FormReg/>});
+    const modal = useModal({title:<TogelLogin/>, content: state.togelLogin ? <FormAuth/>: <FormReg/>});
     const id = idmovie.idmovies;
     const {data, error, isLoading}=useGetMoviesIdQuery(id);
     const favorites =state.auth?.favorites;

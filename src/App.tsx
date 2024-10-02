@@ -3,7 +3,7 @@ import './App.css';
 import logo from './img/logoMovie.png';
 import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 import { InitState, MyReduserContext, reducer } from './redux/reducer';
-import MyModal from './UI/MyModal';
+import useModal from './hooks/useModal';
 import FormAuth from './UI/FormAuth';
 import TogelLogin from './components/TogelLogin';
 import FormReg from './UI/FormReg';
@@ -17,7 +17,7 @@ function App() {
   const [state, dispatch] = React.useReducer(reducer, InitState);
 
 
-  const modal=MyModal({title:<TogelLogin/>, content: state.togelLogin ? <FormAuth/>: <FormReg/>})
+  const modal=useModal({title:<TogelLogin/>, content: state.togelLogin ? <FormAuth/>: <FormReg/>})
 
 useEffect(()=>{
   nav('/home')

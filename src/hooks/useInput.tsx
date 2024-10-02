@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import './uiStyles.css'
+import '../UI/uiStyles.css'
 
 
 
-export default function MyInput({...props}) {
+export default function useInput({...props}) {
 const [value, setValue]=useState<string>('')
 const [debouncedInputValue, setDebouncedInputValue] = React.useState("");
 

@@ -1,7 +1,7 @@
 import React from 'react'
-import './uiStyles.css'
+import '../UI/uiStyles.css'
 
-export default function MyModal({...props}) {
+export default function useModal({...props}) {
 const [showModal, setShowModal]=React.useState(false)
 
 const modal=()=>{
