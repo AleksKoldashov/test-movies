@@ -9,6 +9,7 @@ import TogelLogin from './components/TogelLogin';
 import FormReg from './UI/FormReg';
 import Theme from './components/Theme';
 import SearchMovies from './components/SearchMovies';
+import Exit from './components/Exit';
 
 
 
@@ -52,10 +53,17 @@ useEffect(()=>{
             </div>
             <div>
               {!!state.auth ?  <div className='avatar'>{state?.auth.name}</div> : null}
+              {
+                state.auth 
+                ?
+                <Exit/>
+                :
                 <button
                 type="button"
                 onClick={()=>{modal.togleModal(true)}}
-                >{!!state.auth ?  "Exit" : "Login"}</button>
+                >Login</button>
+              }
+               
                 <NavLink to={`/favorites`}>Favorites</NavLink>
                 <NavLink to={`/home`}>Home</NavLink> 
             </div>
