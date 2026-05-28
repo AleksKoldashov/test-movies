@@ -1,32 +1,33 @@
-import React from 'react'
-import './uiStyles.css'
+import React from "react";
+// @ts-ignore
+import "./uiStyles.css";
 
-export default function MyModal({...props}) {
-const [showModal, setShowModal]=React.useState(false)
+export default function MyModal({ ...props }) {
+  const [showModal, setShowModal] = React.useState(false);
 
-const modal=()=>{
+  const modal = () => {
     return (
-        <>
-        <div className='modal'>
-            <header>
-                <h5>{props.title}</h5>
-                <button
-                onClick={()=>{setShowModal(false)}}
-                >&#10006;</button>
-            </header>
-            <div className="modal-content">
-                    {
-                        props.content
-                    }
-            </div>
-            <footer></footer>
+      <>
+        <div className="modal">
+          <header>
+            <h5>{props.title}</h5>
+            <button
+              onClick={() => {
+                setShowModal(false);
+              }}
+            >
+              &#10006;
+            </button>
+          </header>
+          <div className="modal-content">{props.content}</div>
+          <footer></footer>
         </div>
-        <div className='opcy'></div>
-        </>
-      )
-}
-const togleModal=(b:boolean)=>{
-    setShowModal(b)
-}
-return {modal, togleModal, showModal}
+        <div className="opcy"></div>
+      </>
+    );
+  };
+  const togleModal = (b: boolean) => {
+    setShowModal(b);
+  };
+  return { modal, togleModal, showModal };
 }
